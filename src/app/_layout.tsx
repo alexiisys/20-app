@@ -34,6 +34,7 @@ export default function RootLayout() {
     <Providers>
       <Stack>
         <Stack.Screen name="(app)" options={{ headerShown: false }} />
+        <Stack.Screen name="view-promo" options={{ headerShown: false }} />
       </Stack>
     </Providers>
   );

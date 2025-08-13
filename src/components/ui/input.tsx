@@ -16,17 +16,24 @@ import { Text } from './text';
 
 const inputTv = tv({
   slots: {
-    container: 'flex-1',
+    container: '',
     inputContainer: 'align-center relative flex-row gap-2',
-    label: 'text-md mb-2 font-gilroy font-medium text-grey',
+    label: 'text-md font-gilroy mb-2 font-medium text-grey',
     input:
-      'rounded-xl border-neutral-300 bg-light p-4 font-gilroy text-base font-medium leading-5  dark:border-neutral-700 dark:bg-dark dark:text-white',
+      'font-gilroy rounded-xl border-neutral-300 p-2 font-roboto text-base leading-5 dark:border-neutral-700',
   },
 
   variants: {
     outlined: {
       true: {
         input: 'rounded-xl border border-stroke bg-white ',
+      },
+    },
+    search: {
+      true: {
+        input: 'flex-1 text-lg text-darkGrey dark:text-darkGrey',
+        inputContainer:
+          'items-center rounded-xl bg-bgBlock px-4 py-2 shadow-lg dark:bg-color1',
       },
     },
     focused: {
@@ -57,6 +64,7 @@ export interface NInputProps extends TextInputProps {
   label?: string;
   disabled?: boolean;
   error?: string;
+  search?: boolean;
   outlined?: boolean;
   require?: boolean;
   icon?: ReactElement;
@@ -87,6 +95,7 @@ export const Input = React.forwardRef<NTextInput, NInputProps>((props, ref) => {
     error,
     testID,
     icon,
+    search,
     outlined,
     leftIcon,
     require,
@@ -101,10 +110,11 @@ export const Input = React.forwardRef<NTextInput, NInputProps>((props, ref) => {
       inputTv({
         error: Boolean(error),
         focused: isFocussed,
+        search: Boolean(search),
         disabled: Boolean(props.disabled),
         outlined: Boolean(outlined),
       }),
-    [error, isFocussed, props.disabled, outlined]
+    [error, isFocussed, props.disabled, outlined, search]
   );
 
   return (

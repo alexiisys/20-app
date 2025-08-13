@@ -45,7 +45,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       `applinks:${Env.IOS_APP_DOMAIN.replace('.app.link', '-alternate.app.link')}`,
     ],
     config: {
-      usesNonExemptEncryption: false, 
+      usesNonExemptEncryption: false,
     },
   },
   experiments: {
@@ -69,7 +69,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
           },
           {
             scheme: 'https',
-            host: Env.IOS_APP_DOMAIN.replace('.app.link', '-alternate.app.link'),
+            host: Env.IOS_APP_DOMAIN.replace(
+              '.app.link',
+              '-alternate.app.link'
+            ),
           },
         ],
         category: ['BROWSABLE', 'DEFAULT'],
@@ -118,15 +121,13 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       'expo-font',
       {
         fonts: [
-          './assets/fonts/Gilroy-Regular.ttf',
-          './assets/fonts/Gilroy-Bold.ttf',
-          './assets/fonts/Gilroy-SemiBold.ttf',
-          './assets/fonts/Gilroy-Medium.ttf',
-          './assets/fonts/Gilroy-ExtraBold.ttf',
-          './assets/fonts/Gilroy-Thin.ttf',
-          './assets/fonts/Gilroy-UltraLight.ttf',
-          './assets/fonts/Gilroy-Light.ttf',
-          './assets/fonts/Gilroy-Black.ttf',
+          'node_modules/@expo-google-fonts/roboto/200ExtraLight/Roboto_200ExtraLight.ttf',
+          'node_modules/@expo-google-fonts/roboto/300Light/Roboto_300Light.ttf',
+          'node_modules/@expo-google-fonts/roboto/400Regular/Roboto_400Regular.ttf',
+          'node_modules/@expo-google-fonts/roboto/500Medium/Roboto_500Medium.ttf',
+          'node_modules/@expo-google-fonts/roboto/600SemiBold/Roboto_600SemiBold.ttf',
+          'node_modules/@expo-google-fonts/roboto/700Bold/Roboto_700Bold.ttf',
+          'node_modules/@expo-google-fonts/roboto/800ExtraBold/Roboto_800ExtraBold.ttf',
         ],
       },
     ],

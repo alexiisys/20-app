@@ -16,3 +16,6 @@ export * from './base/share';
 export * from './base/style';
 export * from './base/support';
 export * from './base/website';
+export * from './home';
+export * from './heart';
+export * from './search';

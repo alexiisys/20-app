@@ -12,7 +12,7 @@ const DarkTheme: Theme = {
   colors: {
     ..._DarkTheme.colors,
     primary: colors.iconActive,
-    background: colors.darkBackground,
+    background: colors.black,
     text: colors.white,
     border: colors.darkBorder,
   },

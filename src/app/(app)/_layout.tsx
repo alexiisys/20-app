@@ -9,6 +9,9 @@ import {
   Dashboard,
   Settings as SettingsIcon,
 } from '@/components/ui/icons';
+import ListIcon from '@/components/ui/icons/categories';
+import HomeIcon from '@/components/ui/icons/home';
+import HeartIcon from '@/components/ui/icons/heart';
 
 export default function TabLayout() {
   const { colorScheme } = useColorScheme();
@@ -17,21 +20,32 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarInactiveTintColor: colors.iconInactive,
+        tabBarInactiveTintColor: colors.lightGrey,
+
         tabBarActiveTintColor: isDark ? colors.white : colors.black,
-        tabBarStyle: {
-          backgroundColor: isDark ? colors.darkPrimary : colors.primary,
-        },
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Dashboard',
+          title: 'Home',
           headerShown: false,
-          tabBarIcon: ({ focused }) => (
-            <Dashboard
-              color={focused ? colors.iconActive : colors.iconInactive}
+          tabBarIcon: ({ color }) => (
+            <HomeIcon
+              color={color}
+            />
+          ),
+          tabBarButtonTestID: 'feed-tab',
+        }}
+      />
+      <Tabs.Screen
+        name="categories"
+        options={{
+          title: 'Categories',
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <ListIcon
+              color={color}
             />
           ),
           tabBarButtonTestID: 'feed-tab',
@@ -42,9 +56,9 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           title: 'Favorite',
-          tabBarIcon: ({ focused }) => (
-            <Balance
-              color={focused ? colors.iconActive : colors.iconInactive}
+          tabBarIcon: ({ color }) => (
+            <HeartIcon
+              color={color}
             />
           ),
           tabBarButtonTestID: 'balance-tab',
@@ -55,9 +69,9 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           title: 'Settings',
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ color }) => (
             <SettingsIcon
-              color={focused ? colors.iconActive : colors.iconInactive}
+              color={color}
             />
           ),
           tabBarButtonTestID: 'settings-tab',
