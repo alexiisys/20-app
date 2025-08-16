@@ -4,14 +4,10 @@ import { useColorScheme } from 'nativewind';
 import React from 'react';
 
 import { colors } from '@/components/ui';
-import {
-  Balance,
-  Dashboard,
-  Settings as SettingsIcon,
-} from '@/components/ui/icons';
+import { Settings as SettingsIcon } from '@/components/ui/icons';
 import ListIcon from '@/components/ui/icons/categories';
-import HomeIcon from '@/components/ui/icons/home';
 import HeartIcon from '@/components/ui/icons/heart';
+import HomeIcon from '@/components/ui/icons/home';
 
 export default function TabLayout() {
   const { colorScheme } = useColorScheme();
@@ -30,11 +26,7 @@ export default function TabLayout() {
         options={{
           title: 'Home',
           headerShown: false,
-          tabBarIcon: ({ color }) => (
-            <HomeIcon
-              color={color}
-            />
-          ),
+          tabBarIcon: ({ color }) => <HomeIcon color={color} />,
           tabBarButtonTestID: 'feed-tab',
         }}
       />
@@ -43,11 +35,7 @@ export default function TabLayout() {
         options={{
           title: 'Categories',
           headerShown: false,
-          tabBarIcon: ({ color }) => (
-            <ListIcon
-              color={color}
-            />
-          ),
+          tabBarIcon: ({ color }) => <ListIcon color={color} />,
           tabBarButtonTestID: 'feed-tab',
         }}
       />
@@ -56,11 +44,7 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           title: 'Favorite',
-          tabBarIcon: ({ color }) => (
-            <HeartIcon
-              color={color}
-            />
-          ),
+          tabBarIcon: ({ color }) => <HeartIcon color={color} />,
           tabBarButtonTestID: 'balance-tab',
         }}
       />
@@ -69,11 +53,7 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           title: 'Settings',
-          tabBarIcon: ({ color }) => (
-            <SettingsIcon
-              color={color}
-            />
-          ),
+          tabBarIcon: ({ color }) => <SettingsIcon color={color} />,
           tabBarButtonTestID: 'settings-tab',
         }}
       />

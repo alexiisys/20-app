@@ -1,1 +1,3 @@
-export type Settings = {};
+export type Settings = {
+  favorite: string[];
+};

@@ -11,6 +11,7 @@ import FlashMessage from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 
+import { APIProvider } from '@/api';
 import AppLinkWrapper from '@/components/wrappers/app-link-wrapper';
 import { loadSelectedTheme } from '@/lib';
 import {
@@ -34,7 +35,7 @@ export default function RootLayout() {
     <Providers>
       <Stack>
         <Stack.Screen name="(app)" options={{ headerShown: false }} />
-        <Stack.Screen name="view-promo" options={{ headerShown: false }} />
+        <Stack.Screen name="view-promo/[id]" options={{ headerShown: false }} />
       </Stack>
     </Providers>
   );
@@ -57,12 +58,14 @@ function Providers({ children }: { children: React.ReactNode }) {
     >
       <KeyboardProvider>
         <ThemeProvider value={theme}>
-          <BottomSheetModalProvider>
-            <AppLinkWrapper loader={<Text>Loading...</Text>}>
-              {children}
-            </AppLinkWrapper>
-            <FlashMessage position="top" />
-          </BottomSheetModalProvider>
+          <APIProvider>
+            <BottomSheetModalProvider>
+              <AppLinkWrapper loader={<Text>Loading...</Text>}>
+                {children}
+              </AppLinkWrapper>
+              <FlashMessage position="top" />
+            </BottomSheetModalProvider>
+          </APIProvider>
         </ThemeProvider>
       </KeyboardProvider>
     </GestureHandlerRootView>
